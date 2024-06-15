@@ -13,16 +13,16 @@ use crate::models;
 #[derive(Clone, Default, Debug, PartialEq, Serialize, Deserialize)]
 pub struct SlideSettings {
     #[serde(rename = "min")]
-    pub min: f64,
+    pub min: u32,
     #[serde(rename = "max")]
-    pub max: f64,
+    pub max: u32,
     /// Flag to indicate if the slide operation is fixed. A fixed operation moves the active slider area (min-max) offset to the new min or max value.
     #[serde(rename = "fixed", skip_serializing_if = "Option::is_none")]
     pub fixed: Option<bool>,
 }
 
 impl SlideSettings {
-    pub fn new(min: f64, max: f64) -> SlideSettings {
+    pub fn new(min: u32, max: u32) -> SlideSettings {
         SlideSettings {
             min,
             max,
